@@ -1,0 +1,624 @@
+/* global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --red: red;
+  --pink: rgb(245, 64, 160);
+}
+html {
+  font-size: 16px;
+  /* font-size rem phụ thuộc vào kích thước được set ở html 
+  fz=16px => 1rem=16px */
+  scroll-behavior: smooth;
+}
+body {
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+button {
+  background-color: rgb(245, 64, 160);
+  border: 1px solid white;
+  color: white;
+  padding: 13px 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.4s;
+}
+button:hover {
+  background-color: #ffd8f6;
+  color: black;
+  border-color: #ff89e3;
+}
+/* title */
+h2.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+}
+/* header */
+header {
+  background-color: rgb(96, 11, 200);
+  padding: 20px;
+  /* position: fixed; */
+  width: 100%;
+  transition: all 0.2s linear;
+}
+.header_content {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header_content p {
+  color: white;
+  font-size: 2.313rem;
+  /*
+  Giả sử khi xây xong 1 trang web mà kh muốn tăng font-size lên 1-2px thì làm sao??
+  thì thay đổi px gốc thì đơn vị rem tăng theo
+  */
+  font-weight: bold;
+}
+.header_content ul {
+  list-style: none;
+}
+.header_content ul li {
+  display: inline-block;
+}
+.header_content ul li > a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  padding: 0 1rem;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition-property: all;
+  transition: all 0.2s linear;
+}
+.header_content ul li > a:hover {
+  color: rgb(247, 87, 212);
+}
+.header_content ul li.active > a {
+  color: rgb(245, 64, 160);
+}
+/* carousel */
+.carousel {
+  background-image: url("../images/bgi.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel .carousel_content > p {
+  font-size: 1.1rem;
+  padding: 23px 0;
+}
+.carousel .carousel_content > h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.carousel button:hover{
+  animation: upDown 1s linear ;
+}
+/* introl */
+.intro {
+  display: grid;
+  /* grid-template-columns: 25% 25% 25% 25%; */
+  grid-template-columns: repeat(4, 1fr);
+}
+/* grid
+grid-template-rows: kích thước hàng
+grid-template-columns: kích thước cột. ex: 1fr
+grid-gap: khoang cách giữa các thành phần con trong grid
+fr: phân số
+*/
+.intro .intro_grid_img-1 {
+  /* grid column
+số line bắt đầu
+số line kết thúc
+số cột item chiếm
+*/
+  grid-column: 2 / 4;
+}
+.intro_grid_bake-1 {
+  grid-column: 1/3;
+}
+.intro .intro_grid_img-2 {
+  grid-column: 3 / -1;
+}
+.intro_item > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.intro_item {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: white;
+}
+.intro_item div h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.intro_item div p {
+  line-height: 25px;
+}
+.intro .intro_item_text-padding {
+  padding: 0 20px;
+}
+.intro .intro_item:first-child,
+.intro .intro_item:nth-child(8) {
+  background-color: purple;
+}
+.intro .intro_item:nth-child(3) {
+  background-color: rgb(255, 43, 99);
+}
+.intro .intro_item:nth-child(4) {
+  background-color: rgb(255, 99, 140);
+}
+.intro .intro_item:nth-child(6) {
+  background-color: rgb(110, 98, 235);
+}
+/* number */
+.number {
+  padding: 70px;
+}
+.number__content {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  margin: 0 auto;
+  text-align: center;
+}
+/* 
+first-child : 1. là con đầu, 2. là đúng thẻ đó
+first-of-type: tìm loại thẻ là thẻ p đầu tiên
+last-of-type: loại thẻ là thẻ cuối cùng
+*/
+.number__item p:first-of-type {
+  font-size: 2rem;
+  color: purple;
+  font-weight: bold;
+}
+.number__item p:last-of-type {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 24px 0;
+}
+/* services */
+.services {
+  background-image: url("https://thumbs.dreamstime.com/b/baking-background-flour-eggs-kitchen-tools-utensils-cookie-molds-white-marble-table-top-view-flat-lay-style-mock-up-216435498.jpg");
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+  text-align: center;
+  padding: 70px;
+}
+.services_content {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+}
+.services__item {
+  padding: 0 20px;
+}
+.services__item > i {
+  width: 105px;
+  height: 105px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 3.75rem;
+  color: purple;
+  transition: all 0.4s;
+  line-height: 103px;
+}
+.services__item h3 {
+  font-size: 1.5rem;
+  margin: 17px 0;
+  font-weight: 500;
+}
+.services__item p {
+  font-size: 0.875rem;
+  line-height: 25px;
+  padding: 12px 0;
+}
+.services__item button {
+  padding: 12px 27px;
+  border-width: 2px;
+}
+.services__item:hover i {
+  color: var(--pink);
+}
+/* gallery */
+.gallery {
+  padding: 70px 0;
+}
+.gallery__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-gap: ; */
+  gap: 30px;
+  padding: 0 15px;
+}
+.gallery__g1 {
+  grid-column: 1/3;
+}
+.gallery__g6 {
+  grid-column: 3/-1;
+  /* số cột chiếm diện tích */
+}
+.gallery_item {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.gallery_item__img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 100%;
+  object-position: center;
+}
+.gallery__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(132, 132, 132, 0.219);
+  color: #ffffff;
+  padding: 38px 28px;
+  text-align: right;
+}
+.gallery__overlay p {
+  position: absolute;
+  bottom: 38px;
+  right: 28px;
+  transform: translateY(50px);
+  transition: all 0.2s linear;
+  opacity: 0;
+}
+.gallery__overlay h3 {
+  font-size: 1.875rem;
+  transform: translateY(20px);
+  transition: all 0.2s linear;
+}
+.gallery__overlay h3 span {
+  font-weight: 300;
+}
+/* .gallery__overlay h3::before {
+  content: "The";
+}
+.gallery__overlay h3::after {
+  content: " !";
+} */
+.gallery__overlay h3::after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  display: block;
+  margin-top: 10px;
+  transform: translateY(20px);
+  transition: all 0.2s linear;
+  opacity: 0;
+}
+/* after là 1 thẻ inline */
+.gallery_item:hover .gallery__overlay h3 {
+  transform: translateY(0);
+}
+.gallery_item:hover .gallery__overlay h3::after {
+  transform: translateY(0);
+  opacity: 1;
+}
+.gallery_item:hover .gallery__overlay p {
+  transform: translateY(0);
+  opacity: 1;
+}
+/* team */
+.team {
+  background-color: purple;
+  padding: 70px 0;
+}
+.team > h2.title {
+  color: white;
+}
+.team__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  width: 85%;
+  gap: 25px 30px;
+}
+.team__item > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.team__item {
+  position: relative;
+}
+.team__title {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--pink);
+  width: 100%;
+  padding: 10px;
+  color: white;
+  transition: all 0.3s linear;
+}
+.team__item h3 {
+  font-size: 1.3rem;
+}
+.team__item p {
+  font-size: 0.9rem;
+}
+.team__details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.61);
+  color: white;
+  padding: 40px 30px;
+  opacity: 0;
+  transition: all 0.4s linear;
+}
+.team__details h3 {
+  color: var(--pink);
+}
+.team__text {
+  margin: 8px 0;
+}
+.team__social {
+  margin-top: 24px;
+}
+.team__social i {
+  width: 37px;
+  height: 37px;
+  border: 1.5px solid white;
+  text-align: center;
+  line-height: 37px;
+  margin: 0 5px;
+  transition: all 0.2s linear;
+}
+.team__social i:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+.team__item:hover .team__details {
+  opacity: 1;
+}
+.team__item:hover .team__title {
+  opacity: 0;
+}
+.team__item2,
+.team__item4 {
+  overflow: hidden;
+}
+.team__item2 .team__details {
+  opacity: 1;
+  transform: translateX(-100%);
+}
+.team__item2:hover .team__details {
+  transform: translateX(0);
+  transition: all 0.4s linear;
+}
+.team__item4 .team__details {
+  transition: all 0.4s linear;
+}
+.team__item4:hover .team__details {
+  transform: rotate(360deg);
+}
+.team__item5 .team__details {
+  transform: scale(0);
+}
+.team__item5:hover .team__details {
+  transform: scale(1);
+
+}
+/* feedback */
+.feedback {
+  background-image: url("https://images.template.net/89448/free-wedding-cake-background-2sndy.jpg");
+  background-size: contain;
+  width: 100%;
+  padding: 70px 0;
+  background-position: center;
+  height: 100%;
+}
+.feedback h2.title {
+  color: black;
+}
+.feedback__content {
+  width: 75%;
+  margin: 0 auto;
+  border: 3px solid var(--pink);
+  background-color: #a5a5a516;
+  padding: 32px;
+}
+.feedback__content i {
+  color: rgb(0, 162, 255);
+  font-size: 1.3rem;
+  padding: 0 18px;
+}
+.feedback__name {
+  line-height: 30px;
+  letter-spacing: 2px;
+  color: var(--pink);
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.feedback__content .owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background-color: rgba(0, 0, 0, 0.596);
+}
+/* contact */
+.contact {
+  padding: 70px 0;
+}
+.contact__form form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 70%;
+  margin: 0 auto;
+  gap: 15px 30px;
+}
+.contact__form form textarea,
+.contact__form form button {
+  grid-column: 1 /3;
+}
+.contact__form form input,
+.contact__form form textarea {
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+  border-color: rgb(171, 171, 171);
+}
+.contact__form form input:focus,
+.contact__form form textarea:focus {
+  box-shadow: 1px 0px 4px 0px rgb(0, 137, 234);
+  border-color: rgba(222, 222, 222, 0.745);
+}
+.contact__form form textarea {
+  resize: none;
+}
+.contact__map iframe {
+  width: 100%;
+  margin-top: 50px;
+}
+.contact__info {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+.contact__info i {
+  font-size: 1.8rem;
+  color: purple;
+  margin-bottom: 10px;
+}
+/* footer */
+footer {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.footer__main {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+.footer__copyright {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.footer__item {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer__item h3 {
+  color: var(--pink);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.footer__time {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.348);
+}
+.footer__item p {
+  padding: 10px 0;
+}
+
+.footer__social {
+  margin-top: 20px;
+}
+.footer__social i {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border: 1px solid white;
+  margin-right: 5px;
+  transition: all 0.2s;
+}
+.footer__social i:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+  cursor: pointer;
+}
+.footer__subcribe input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  outline: none;
+}
+.footer__subcribe {
+  margin-bottom: 15px;
+}
+.footer__copyright span {
+  color: var(--pink);
+}
+/* back to top */
+.backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  visibility: hidden;
+  opacity: 0;
+}
+.backToTop i {
+  color: purple;
+  font-size: 2rem;
+  height: 40px;
+  width: 40px;
+  border: 2px solid purple;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 50%;
+}
+.cd-top--is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top--fade-out {
+  opacity: 0.5;
+}
+/* animation */
+@keyframes upDown{
+    0%{}
+    50%{
+      transform:  translateY(-30%);
+    }
+    100%{
+      transform: translateY(0);
+    }
+}
